@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Camera Web App</title>
+    <link rel="stylesheet" href="main.css">
+
+</head>
+<body>
+    <div id="header">
+        <h3>CHECKING-PASS</h3>
+        <p>하이패스보다 빠른 채점, 더 바른 오답관리</p>
+    </div>
+    
+    <main id="camera">
+        <canvas id="camera--sensor"></canvas>
+
+        <!-- 기기의 카메라에 접근하여 영상을 페이지에 재생한다. -->
+        <video id="camera--view" autoplay playsinline></video>
+        
+        <img src="//:0" alt="" id="camera--output">
+
+        <button id="camera--trigger">사진촬영</button>
+        <button id="checking--trigger">채점하기</button>
+    </main>
+
+
+    <script>
+
+        let constraints = { video: { facingMode: "enviroment"}, audio: false};
+        const cameraView = document.querySelector("#camera--view");
+        const cameraOutput = document.querySelector("#camera--output");
+        const cameraSensor = document.querySelector("#camera--sensor");
+        const cameraTrigger = document.querySelector("#camera--trigger");
+        const checkTrigger = document.querySelector("#checking--trigger");
+        
+        var download = document.getElementById("download");
+
+
+        function cameraStart(){
+            navigator.mediaDevices.getUserMedia(constraints)
+                .then(function(stream){
+                    track = stream.getTracks()[0];
+                    cameraView.srcObject = stream;
+
+                })
+                .catch(function(error){
+                    console.error("카메라에 문제가 있습니다.", error);
+                })
+        }
+
+        //촬영 버튼 클릭 리스너
+        cameraTrigger.addEventListener("click", function(){
+            cameraSensor.width = cameraView.videoWidth; //640으로 정해져서 나오네?
+            cameraSensor.height = cameraView.videoHeight;
+            cameraSensor.getContext("2d").drawImage(cameraView, 0, 0);
+            cameraOutput.src = cameraSensor.toDataURL("image/webp");
+            cameraOutput.classList.add("taken");
+            cameraOutput.style.zIndex ="2";
+            checkTrigger.style.zIndex ="3";
+        });
+        
+        //채점하기 버튼 클릭 리스너 
+        checkTrigger.addEventListener("click", function(){
+             window.location.href = 'result.html';
+        });
+        
+        
+function download() {
+    var image = document.getElementById("myCanvas")
+        .toDataURL("image/png")
+        .replace("image/png", "image/octet-stream");
+    download.setAttribute("href", image);
+    download.setAttribute("download","image-name.png");
+    checkTrigger.style.zIndex ="2"
+}
+    
+        // 페이지가 로드되면 함수 실행
+        window.addEventListener("load", cameraStart, false);
+    </script>
+</body>
+</html>

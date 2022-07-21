@@ -1,0 +1,98 @@
+html {
+}
+
+body {    
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+}
+main{
+    min-height: 100vh;
+}
+
+#review, #result{
+    
+    text-align: center;
+}
+h1, h2, h3, h4, h5, h6 {
+    color: #222;
+    font-weight: 600;
+    line-height: 1.3;
+}
+
+h2 {
+    margin-top: 1.3em;
+}
+
+a {
+    color: #0083e8;
+}
+
+b, strong {
+    font-weight: 600;
+}
+
+samp {
+    display: none;
+}
+
+img {
+}
+
+
+#header{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    text-align: center;
+    z-index: 10;
+}
+        #camera, #camera--view, #camera--sensor, #camera--output{
+            position: fixed;
+            height: 100%;
+            width: 100%;
+            object-fit: cover;
+        }
+#camera--output{
+    z-index: -5;
+}
+        #camera--view, #camera--sensor, #camera--output{
+            transform: scaleX(-1);
+            filter: FlipH;
+        }
+
+        button{
+            width: 180px;
+            color: white;
+            background-color: black;
+            font-size: 16px;
+            border-radius: 30px;
+            border: none;
+            padding: 15px 20px;
+            text-align: center;
+            box-shadow: 0 5px 10px 0 rgba(0,0,0,0, 0.2);
+            position: fixed;
+            bottom: 30px;
+            left: calc(50% - 90px);
+        }
+
+        .taken {
+        }
+        
+        #checking--trigger {
+            z-index: -1;
+        }
+
+@keyframes colorize {
+    0% {
+        -webkit-filter: grayscale(100%);
+        filter: grayscale(100%);
+    }
+    100% {
+        -webkit-filter: grayscale(0%);
+        filter: grayscale(0%);
+    }
+}
