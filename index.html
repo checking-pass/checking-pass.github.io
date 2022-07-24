@@ -4,81 +4,122 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Camera Web App</title>
+    <title>하이패스보다 빠른 채점:checking-pass</title>
     <link rel="stylesheet" href="main.css">
-
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 </head>
 <body>
-    <div id="header">
-        <h3>CHECKING-PASS</h3>
-        <p>하이패스보다 빠른 채점, 더 바른 오답관리</p>
-    </div>
     
-    <main id="camera">
-        <canvas id="camera--sensor"></canvas>
-
-        <!-- 기기의 카메라에 접근하여 영상을 페이지에 재생한다. -->
-        <video id="camera--view" autoplay playsinline></video>
-        
-        <img src="//:0" alt="" id="camera--output">
-
-        <button id="camera--trigger">사진촬영</button>
-        <button id="checking--trigger">채점하기</button>
+    <header class="main_header">
+        <h1>안녕하세요, 서로켓님!</h1>
+        <h2>서로켓님과의 1일차</h2>
+        <h3><span class="material-symbols-rounded">check</span>  체크한 문제갯수 <span>233문제</span></h3>
+        <h3><span class="material-symbols-rounded">
+            close</span>  체크한 오답갯수 <span>73문제</span></h3>
+        <span class="material-symbols-rounded setting">settings</span>
+        <img src="user_icon.png" alt="유저이미지">
+    </header>
+    
+    <main id="home">
+       <section class="horizontal_grid grid">
+        <h2>진행중인 문제집 </h2>
+        <ul>
+            <li>
+                <h1>수학1</h1>
+                <h2>자이스토리</h2>
+                <div class="info">
+                    <h1>진행률</h1>
+                    <span>20%  </span>
+                    <div class="bar"></div>
+                </div>
+            </li>
+            <li>
+                <h1>수학1</h1>
+                <h2>자이스토리</h2>
+                <div class="info">
+                    <h1>진행률</h1>
+                    <span>20%  </span>
+                    <div class="bar"></div>
+                </div>
+            </li>
+        </ul>
+       </section>       
+       
+       <section class="vertical_grid grid">
+        <h2>오답모아보기</h2>
+        <ul>
+            <li>
+                <a href="./review.html">
+                    <h1>수학1</h1>
+                    <h2>자이스토리</h2>
+                    <div class="info">
+                        <h1>진행률</h1>
+                        <span>0%</span>
+                        <div class="bar"></div>
+                    </div>
+                </a>
+            </li>
+            <li>
+                <h1>수학1</h1>
+                <h2>자이스토리</h2>
+                <div class="info">
+                    <h1>진행률</h1>
+                    <span>0%</span>
+                    <div class="bar"></div>
+                </div>
+            </li>
+            <li>
+                <h1>영어</h1>
+                <h2>TOEIC LC</h2>
+                <div class="info">
+                    <h1>진행률</h1>
+                    <span>0%</span>
+                    <div class="bar"></div>
+                </div>
+            </li>
+            <li>
+                <h1>영어</h1>
+                <h2>TOEIC VOCA</h2>
+                <div class="info">
+                    <h1>진행률</h1>
+                    <span>0%</span>
+                    <div class="bar"></div>
+                </div>
+            </li>
+        </ul>
+       </section>
     </main>
 
+<footer>
+    <ul>
+        <li class="active">
+            <a href="./index.html">
+                <span class="material-symbols-rounded">home</span>
+            </a>
+        </li>
+        <li>
+            <a href="./checking_menu.html">
+                <span class="material-symbols-rounded">
+                    center_focus_strong
+                    </span>
+            </a>
+        </li>
+        <li>
+            <a href="./review.html">
+                <span class="material-symbols-rounded">
+                    playlist_add_check
+                    </span>
+            </a>
+        </li>
+        <li>
+            <a href="./mypage.html">
+                <span class="material-symbols-rounded">
+                    person
+                    </span>
+            </a>
+        </li>
+    </ul>
+</footer>
 
-    <script>
-
-        let constraints = { video: { facingMode: "environment"}, audio: false};
-        const cameraView = document.querySelector("#camera--view");
-        const cameraOutput = document.querySelector("#camera--output");
-        const cameraSensor = document.querySelector("#camera--sensor");
-        const cameraTrigger = document.querySelector("#camera--trigger");
-        const checkTrigger = document.querySelector("#checking--trigger");
-        
-        var download = document.getElementById("download");
-
-
-        function cameraStart(){
-            navigator.mediaDevices.getUserMedia(constraints)
-                .then(function(stream){
-                    track = stream.getTracks()[0];
-                    cameraView.srcObject = stream;
-
-                })
-                .catch(function(error){
-                    console.error("카메라에 문제가 있습니다.", error);
-                })
-        }
-
-        //촬영 버튼 클릭 리스너
-        cameraTrigger.addEventListener("click", function(){
-            cameraSensor.width = cameraView.videoWidth; //640으로 정해져서 나오네?
-            cameraSensor.height = cameraView.videoHeight;
-            cameraSensor.getContext("2d").drawImage(cameraView, 0, 0);
-            cameraOutput.src = cameraSensor.toDataURL("image/webp");
-            cameraOutput.classList.add("taken");
-            cameraOutput.style.zIndex ="2";
-            checkTrigger.style.zIndex ="3";
-        });
-        
-        //채점하기 버튼 클릭 리스너 
-        checkTrigger.addEventListener("click", function(){
-             window.location.href = 'result.html';
-        });
-        
-        
-function download() {
-    var image = document.getElementById("myCanvas")
-        .toDataURL("image/png")
-        .replace("image/png", "image/octet-stream");
-    download.setAttribute("href", image);
-    download.setAttribute("download","image-name.png");
-    checkTrigger.style.zIndex ="2"
-}
-    
-        // 페이지가 로드되면 함수 실행
-        window.addEventListener("load", cameraStart, false);
-    </script>
 </body>
 </html>

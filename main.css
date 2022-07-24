@@ -1,98 +1,360 @@
-html {
-}
+@import url("//fonts.googleapis.com/earlyaccess/notosanskr.css");
 
 body {    
-    position: relative;
-    width: 100vw;
-    height: 100vh;
+    font-family:'Noto Sans KR';
     margin: 0;
     padding: 0;
 }
-main{
-    min-height: 100vh;
+ul{
+    list-style-type: none;
+    padding: 0;
+    display: flex;
+}
+a{
+    text-decoration: none;
+    color: inherit;
+}
+h3{
+    color: #ddd;
 }
 
-#review, #result{
-    
-    text-align: center;
-}
 h1, h2, h3, h4, h5, h6 {
     color: #222;
     font-weight: 600;
     line-height: 1.3;
+    margin: 0;
+    padding: 0;
 }
 
-h2 {
-    margin-top: 1.3em;
+.sub_header{
+    width: 100vw;    
+    display: flex;
+    justify-content: space-between;
+    background-color: blue;
+    color: white;
+    align-items: center;
+    height: 60px;
+}
+.sub_header h1{
+    color: inherit;
+    font-size: 18px;
+}
+.sub_header a span{
+    font-size: 30px;
+    margin: 0;
+    padding: 20px;
+    width: 30px;
+}
+.sub_header.clear{
+    position: fixed;
+    color: black;
+    top:0;
+    left: 0;
+    background: none;
+
 }
 
-a {
-    color: #0083e8;
+.popup{
+    display: flex;
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    z-index: 10;
+    text-align: center;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
 }
-
-b, strong {
+.popup span{
+    display: block;
+    width: 100vw;
+    font-size: 120px;
+    margin-top: 40px;
+}
+.popup button{
+    border: none;
+    outline: none;
+    position: absolute;
+    bottom: 60px;
+    right: calc(50% - 120px);
+    width: 240px;
+    height: 60px;
+    border-radius: 30px;
+    background-color: blue;
+    color: white;
+    font-size: 20px;
     font-weight: 600;
-}
 
-samp {
+}
+.popup.out{
     display: none;
 }
+#camera, #camera--view, #camera--sensor{
+    position: fixed;
+    height: 100vh;
+    width: 100vw;
+    object-fit: cover;
+}
 
-img {
+#camera--view, #camera--sensor{
+    transform: scaleX(-1);
+    filter: FlipH;
+}
+
+.cameraCue{
+}
+.cameraCue .gallery{
+    display: flex;
+    flex-wrap: nowrap;
+    margin-top: -120px;
+    margin-bottom: 20px;
+}
+.cameraCue #camera--trigger{
+    bottom: 130px;
+}
+
+.camera--output.taken {
+    width: 50vw;
+    height: 40vh;
+    object-fit: cover;
+    transform: scaleX(-1);
 }
 
 
-#header{
+
+
+
+
+.main_header{
+    background: blue;
+    /* background: linear-gradient(180deg, rgba(170,76,255,1) 19%, rgba(255,214,233,1) 100%);     */
+    border-radius: 0 0 20px 20px;
+    width: calc(100% - 80px);
+    color: white;
+    padding: 50px 40px 30px 40px;
+    box-shadow: 0 9px 15px #0000004d;
+    margin-bottom: 30px;
+}
+
+.main_header img{
+    width: 64px;
+    border-radius: 32px;
+    background-color: white;
     position: absolute;
-    top: 0;
+    right: 30px;
+    top: 50px;
+}
+.main_header h1{  
+    color: white;
+    font-size: 24px;
+}
+
+.main_header h2{  
+    color: white;
+    font-size: 18px;
+    margin-bottom: 30px;
+}
+.main_header h3{  
+    color: white;
+    font-size: 14px;
+    font-weight: 400;
+    margin-left: 10px;
+}
+.main_header h3 span{
+    font-size: 14px;
+    font-weight: 400;
+    color: white;
+}
+.main_header .setting{
+    text-align: right;
+    width: 100%;
+    display: inline-block;
+}
+
+footer ul{
+    display: flex;
+    position: fixed;
+    bottom: 0;
     left: 0;
     width: 100%;
+    margin: 0;
+}
+
+footer li{
+    flex-basis: 25%;
     text-align: center;
-    z-index: 10;
+    height: 65px;
+    line-height: 65px;
+    background-color: #fff;
 }
-        #camera, #camera--view, #camera--sensor, #camera--output{
-            position: fixed;
-            height: 100%;
-            width: 100%;
-            object-fit: cover;
-        }
-#camera--output{
-    z-index: -5;
+footer li.active a:after{ 
+    content: " ";
+    height: 15px;
+    width: 26px;
+    display: block;
+    background-color: blue;
+    position: absolute;
+    bottom: 0px;
+    left: calc(50% - 13px);
+    border-radius: 20px;
 }
-        #camera--view, #camera--sensor, #camera--output{
-            transform: scaleX(-1);
-            filter: FlipH;
-        }
+footer li.active a{
+    color: blue;
+}
+footer li a{
+    text-decoration: none;
+    color:#ddd;
+    padding-top: 6px;
+    position: relative;
+    display: block;
+}
 
-        button{
-            width: 180px;
-            color: white;
-            background-color: black;
-            font-size: 16px;
-            border-radius: 30px;
-            border: none;
-            padding: 15px 20px;
-            text-align: center;
-            box-shadow: 0 5px 10px 0 rgba(0,0,0,0, 0.2);
-            position: fixed;
-            bottom: 30px;
-            left: calc(50% - 90px);
-        }
 
-        .taken {
-        }
-        
-        #checking--trigger {
-            z-index: -1;
-        }
+main{
+    min-height: 100vh;
+    display: inline-block;
+}
+main section {
+   margin: 20px;
+}
+.list{
+    width: 100vw;
+    margin: 0;
+    margin-top: -20px;
+}
+.list ul{
+    display: flex;
+    align-content: flex-start;
+    flex-direction: column;
+    margin: 0;
+}
 
-@keyframes colorize {
-    0% {
-        -webkit-filter: grayscale(100%);
-        filter: grayscale(100%);
-    }
-    100% {
-        -webkit-filter: grayscale(0%);
-        filter: grayscale(0%);
-    }
+.list li{ 
+    height: 60px;
+    flex-shrink: 0;
+    display: block;
+    border-bottom: 1px solid #ddd;
+    line-height: 60px;
+    text-indent: 30px;
+}
+.grid li{
+    display: inline-block;
+    background: bisque;
+    border-radius: 20px;
+    padding: 20px;
+    padding-left: 30px;
+    margin-right: 20px;
+} 
+.grid h2{
+    font-size: 20px;
+}
+.grid h3{
+    color: #999;
+    font-weight: 400;
+    font-size: 16px;
+}
+.grid .info {    
+    margin-top: 30px;
+}
+.grid .info h1{    
+    font-size: 16px;
+}
+.grid .info span{   
+    width: 100%;
+    background-color: white;
+    display: block;
+    border-radius: 30px;
+    height: 20px;
+    position: relative;
+    font-size: 16px;
+    text-indent: calc(100% - 40px);
+    line-height: 24px;
+}
+.grid .info span::after{   
+    content: " "; 
+    height: 20px;
+    width: 20%;
+    background-color: rgb(228, 94, 94);
+    display: block;
+    border-radius: 30px;
+    position: absolute;
+    top: 0;
+}
+.horizontal_grid{
+
+    margin-right: 0;
+}
+.horizontal_grid ul{
+    overflow: scroll;
+    padding-bottom: 25px;
+}
+.horizontal_grid li{
+    width: 60%;
+    flex-shrink: 0;
+}
+.vertical_grid ul{
+    flex-wrap : wrap;
+}
+.vertical_grid li{
+    margin: 0;
+    flex-basis: calc(50% - 55px);
+    margin-bottom: 10px;
+}
+.vertical_grid li:nth-child(odd){
+    margin-right: 10px;
+}
+#result label{
+    margin: 20px 10px;
+    font-size: 18px;
+}
+#result li{
+    flex-basis: 100%;
+    margin-right: 0;
+    margin-bottom: 30px;
+    background-color: white;
+    box-shadow: 0px 15px 15px #8080803d;
+    overflow: hidden;
+    padding-bottom: 0;
+}
+#result li h2{
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+}
+#result li span{
+    width: 100%;
+    text-align: right;
+}
+#result li.wrong{
+    box-shadow: 0px 15px 15px #ffababc9;
+}
+#result li.wrong h2::after{
+    content: "오답";
+    font-size: 16px;
+    color: red;
+}
+#checking_menu li{
+    flex-basis: 100%;
+    margin: 0;
+    margin-bottom: 20px;
+    display: block;
+}
+.grid .btn{
+    flex-basis: 100%;
+    margin: 0;
+    margin-bottom: 20px;
+    display: block;
+    text-align: center;
+    background-color: #ddd;
+}
+.grid .btn span{
+    display: block;
+    text-align: center;
+    margin-bottom: 5px;
+}
+#result{
+    margin-bottom: 100px;
+}
+#result img{
+    width: 60vw;
 }
