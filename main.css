@@ -4,6 +4,7 @@ body {
     font-family:'Noto Sans KR';
     margin: 0;
     padding: 0;
+    overscroll-behavior-y: none;
 }
 ul{
     list-style-type: none;
