@@ -12,26 +12,41 @@
 <body>
 
     <div class="popup" id="first_pop">
-        <header class="sub_header clear">
+        <header class="sub_header clear fixed">
             <a href="javascript:window.history.back();">
-                <span class="material-symbols-rounded">
-                    arrow_back
-                </span>
-            </a>
-            <a href="javascript:window.history.back();">
-                <span class="material-symbols-rounded">
-                    help
-                </span>
-            </a>
+            <span class="material-symbols-rounded">
+                arrow_back
+            </span>
+        </a>
+        <a href="javascript:window.history.back();">
+            <span class="material-symbols-rounded">
+                help
+            </span>
+        </a>
+        <a href=""><span class="material-symbols-rounded">
+image
+</span></a>
+        <a href=""><span class="material-symbols-rounded">
+cameraswitch
+</span></a>
         </header>
-        <span class="material-symbols-rounded">center_focus_strong</span>
-        <h1>
+        <span class="material-symbols-rounded opacity" >center_focus_strong</span>
+        <h1 class="opacity">
             채점하려는 문제집을 <br>화면 정중앙에 맞춰주세요
         </h1>
-        <button id="camera--trigger" class="popup-trigger" onclick="addPhoto()">촬영하기</button>
+        <button id="camera--trigger" class="popup-trigger circle_btn" onclick="addPhoto()"><span class="material-symbols-rounded">
+photo_camera
+</span>
+   </button>
+       <nav class="checking_option">
+           <a href="">서술형</a>
+           <a class="on" href="">객관식</a>
+           <a href="">단답형</a>
+       </nav>
+   
     </div>
     <div class="popup out cameraCue" id="second_pop">
-        <header class="sub_header clear">
+        <header class="sub_header clear fixed">
         <a href="javascript:window.history.back();">
             <span class="material-symbols-rounded">
                 arrow_back
@@ -42,6 +57,12 @@
                 help
             </span>
         </a>
+        <a href=""><span class="material-symbols-rounded">
+image
+</span></a>
+        <a href=""><span class="material-symbols-rounded">
+cameraswitch
+</span></a>
     </header>
         <div class="gallery">
             <img src="//:0" alt="" class="camera--output">
@@ -50,15 +71,15 @@
             <img src="//:0" alt="" class="camera--output">
             <img src="//:0" alt="" class="camera--output">
         </div>
-        <h1>
+        <h1 class="opacity">
             잘 촬영되었어요. <br>
             채점할까요?
         </h1>
-        <h3>
+        <h3 class="opacity">
             더 촬영하기를 누르시면,
             <br>한 번에 여러문제를 채점할 수 있습니다.
         </h3>
-        <button id="camera--trigger"onclick="addPhoto()">연속촬영하기</button>
+        <button id="camera--trigger"onclick="addPhoto()">더 촬영하기</button>
         <button id="checking--trigger"><a href="./result.html">채점하기</a></button>
     </div>
     <main id="camera">

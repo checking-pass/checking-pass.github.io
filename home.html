@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>하이패스보다 빠른 채점:checking-pass</title>
+    <script type="text/javascript">	window.addEventListener("load", function() {		setTimeout(scrollTo, 0, 0, 1);	}, false);</script>
+    <link rel="stylesheet" href="main.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+</head>
+<body>
+   
+    <header class="sub_header">
+        <a href="javascript:window.history.back();">
+            <span class="material-symbols-rounded">
+                menu
+            </span>
+        </a>
+        <h1></h1>
+        <a href="javascript:window.history.back();">
+            <span class="material-symbols-rounded">
+               search
+            </span>
+        </a>
+    </header>
+    <header class="main_header">
+<!--        <img class=logo src="./logo5.png" alt="">-->
+        <img class=title src="./logo3.png" alt="">
+        <h1>안녕하세요, 김아산님!</h1>
+        <h2>김아산님과의 149일차</h2>
+<!--
+        <h3><span class="material-symbols-rounded">check</span>  체크한 문제갯수 <span>233문제</span></h3>
+        <h3><span class="material-symbols-rounded">
+            close</span>  체크한 오답갯수 <span>73문제</span></h3>
+        <span class="material-symbols-rounded setting">settings</span>
+-->
+    </header>
+    
+    <main id="home">
+      
+       <section class="list">
+        <ul>
+        <h2>김아산님의 학습현황 </h2>
+            <li><a href="./review.html"><h1>총 정답률: 71%</h1>
+                <h3>자세히보기</h3>
+              </a>  </li>
+            <li> <a href="./review.html"><h1>푼 문제/틀린 문제: 300/49</h1>
+                <h3>자세히보기</h3></a> 
+                </li>
+            <li><a href="./checking_menu.html"><h1>진행 중인 문제집 수:3(개)</h1>
+                <h3>자세히보기</h3>
+                </a></li>
+        </ul>
+       </section>   
+       
+       <section class="horizontal_grid grid">
+        <h2>진행중인 문제집 </h2>
+        <ul>
+            <li id="공채">
+                <a href="./checking.html">
+                    <h1>2022 5급 공개경쟁채용시험</h1>
+                    <h2>행정직</h2>
+                    <span>객관식형</span>
+                    <div class="info">
+                        <h1>진행률</h1>
+                        <span></span>
+                        <div class="bar"></div>
+                    </div>
+                </a>
+            </li>
+            <li id="토익">
+                <a href="./checking.html">
+                <h1>TOEIC</h1>
+                <h2>단어</h2>
+                <span>단답형</span>
+                <div class="info">
+                    <h1>진행률</h1>
+                    <span></span>
+                    <div class="bar"></div>
+                </div>
+                </a>
+            </li>
+            <li id="논술">
+                <a href="./checking.html">
+                <h1>수리논술</h1>
+                <h2>기출문제</h2>
+                <span>논술형</span>
+                <div class="info">
+                    <h1>진행률</h1>
+                    <span></span>
+                    <div class="bar"></div>
+                </div>
+                </a>
+            </li>
+        </ul>
+       </section>       
+       
+       <section class="vertical_grid grid">
+        <h2>오답모아보기</h2>
+        <ul>
+            <li id="공채">
+                <a href="./review.html">
+                    <h1>2022 5급 공개경쟁채용시험</h1>
+                    <h2>행정직</h2>
+                    <div class="info">
+                        <h1>진행률</h1>
+                        <span></span>
+                        <div class="bar"></div>
+                    </div>
+                </a>
+            </li>
+            <li id="토익">
+                <h1>TOEIC</h1>
+                <h2>단어</h2>
+                <div class="info">
+                    <h1>진행률</h1>
+                    <span></span>
+                    <div class="bar"></div>
+                </div>
+            </li>
+            <li id="토익">
+                <h1>TOEIC</h1>
+                <h2>LC</h2>
+                <div class="info">
+                    <h1>진행률</h1>
+                    <span></span>
+                    <div class="bar"></div>
+                </div>
+            </li>
+            <li id="논술">
+                <h1>수리논술</h1>
+                <h2>기출문제</h2>
+                <div class="info">
+                    <h1>진행률</h1>
+                    <span></span>
+                    <div class="bar"></div>
+                </div>
+            </li>
+        </ul>
+       </section>
+      
+        </main> 
+<footer>
+    <ul>
+        <li class="active">
+            <a href="./home.html">
+                <span class="material-symbols-rounded">home</span>
+            </a>
+        </li>
+        <li>
+            <a href="./checking_menu.html">
+                <span class="material-symbols-rounded">
+                    center_focus_strong
+                    </span>
+            </a>
+        </li>
+        <li>
+            <a href="./review.html">
+                <span class="material-symbols-rounded">
+                    playlist_add_check
+                    </span>
+            </a>
+        </li>
+        <li>
+            <a href="./mypage.html">
+                <span class="material-symbols-rounded">
+                    person
+                    </span>
+            </a>
+        </li>
+    </ul>
+</footer>
+<script>
+
+        //팝업관리
+        var sliderTriger = document.querySelector("#sliderTriger");
+        var slider = document.querySelector(".slider");
+        sliderTriger.addEventListener("click", function(){
+            slider.classList.add("mover");
+        });
+    
+
+</script>
+</body>
+</html>

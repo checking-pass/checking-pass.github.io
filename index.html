@@ -10,117 +10,48 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 </head>
 <body>
-    
-    <header class="main_header">
-        <h1>안녕하세요, 서로켓님!</h1>
-        <h2>서로켓님과의 1일차</h2>
-        <h3><span class="material-symbols-rounded">check</span>  체크한 문제갯수 <span>233문제</span></h3>
-        <h3><span class="material-symbols-rounded">
-            close</span>  체크한 오답갯수 <span>73문제</span></h3>
-        <span class="material-symbols-rounded setting">settings</span>
-        <img src="user_icon.png" alt="유저이미지">
-    </header>
-    
-    <main id="home">
-       <section class="horizontal_grid grid">
-        <h2>진행중인 문제집 </h2>
-        <ul>
-            <li>
-                <h1>수학1</h1>
-                <h2>자이스토리</h2>
-                <div class="info">
-                    <h1>진행률</h1>
-                    <span>20%  </span>
-                    <div class="bar"></div>
-                </div>
-            </li>
-            <li>
-                <h1>수학1</h1>
-                <h2>자이스토리</h2>
-                <div class="info">
-                    <h1>진행률</h1>
-                    <span>20%  </span>
-                    <div class="bar"></div>
-                </div>
-            </li>
-        </ul>
-       </section>       
-       
-       <section class="vertical_grid grid">
-        <h2>오답모아보기</h2>
-        <ul>
-            <li>
-                <a href="./review.html">
-                    <h1>수학1</h1>
-                    <h2>자이스토리</h2>
-                    <div class="info">
-                        <h1>진행률</h1>
-                        <span>0%</span>
-                        <div class="bar"></div>
-                    </div>
-                </a>
-            </li>
-            <li>
-                <h1>수학1</h1>
-                <h2>자이스토리</h2>
-                <div class="info">
-                    <h1>진행률</h1>
-                    <span>0%</span>
-                    <div class="bar"></div>
-                </div>
-            </li>
-            <li>
-                <h1>영어</h1>
-                <h2>TOEIC LC</h2>
-                <div class="info">
-                    <h1>진행률</h1>
-                    <span>0%</span>
-                    <div class="bar"></div>
-                </div>
-            </li>
-            <li>
-                <h1>영어</h1>
-                <h2>TOEIC VOCA</h2>
-                <div class="info">
-                    <h1>진행률</h1>
-                    <span>0%</span>
-                    <div class="bar"></div>
-                </div>
-            </li>
-        </ul>
-       </section>
-    </main>
+   
+    <div class="splash slider">
+        <article>
+            <h1>채점에 가치를 두다! <br>빠르고 정확한 채점<br>
+            <span>지금 바로 채점해보세요.</span></h1>
+            <div class="contents"></div>
+        </article>
+        <article>
+            <h1>AI를 만나면<br>지루했던 공부가<br>더, 빨라집니다.<br>
+            <span>지금 바로 시작해보세요.</span></h1>
+            <div class="contents"></div>
+        </article>
+    </div>
+    <div class="slider_controller">
+        <button class="circle_btn" id="sliderTriger">
+            <span class="material-symbols-rounded">arrow_forward</span>
+        </button>
+    </div>
+    <div class="scroll"></div>
+<script>
 
-<footer>
-    <ul>
-        <li class="active">
-            <a href="./index.html">
-                <span class="material-symbols-rounded">home</span>
-            </a>
-        </li>
-        <li>
-            <a href="./checking_menu.html">
-                <span class="material-symbols-rounded">
-                    center_focus_strong
-                    </span>
-            </a>
-        </li>
-        <li>
-            <a href="./review.html">
-                <span class="material-symbols-rounded">
-                    playlist_add_check
-                    </span>
-            </a>
-        </li>
-        <li>
-            <a href="./mypage.html">
-                <span class="material-symbols-rounded">
-                    person
-                    </span>
-            </a>
-        </li>
-    </ul>
-</footer>
+        //슬라이더 조작
+        var sliderTriger = document.querySelector("#sliderTriger");
+        var slider = document.querySelector(".slider");
+        var scroll = document.querySelector(".scroll");
+        var counter = 1;
+        var link = './login.html'; 
+    
+        sliderTriger.addEventListener("click", function(){
+            if (counter == 1){
+                slider.classList.add("mover");
+                scroll.classList.add("mover");
+                sliderTriger.classList.add("notice");
+                counter++;
+            }else{
+             location.href=link;
+            }
+        });
+    
 
+</script>
 </body>
 </html>
+
+
