@@ -1,5 +1,6 @@
-@import url("//fonts.googleapis.com/earlyaccess/notosanskr.css");
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap');
 
+/*css제거*/
 body {    
     font-family:'Noto Sans KR';
     margin: 0;
@@ -19,19 +20,45 @@ h3{
     color: #ddd;
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1, h2, h3{
     color: #222;
-    font-weight: 600;
+    font-weight: 500;
+    line-height: 1.3;
+    margin: 0;
+    padding: 0;
+}
+h4, h5, h6 {
+    color: #222;
+    font-weight: 400;
     line-height: 1.3;
     margin: 0;
     padding: 0;
 }
 
+button{
+    background: none;
+	color: inherit;
+	border: none;
+	padding: 0;
+	font: inherit;
+	cursor: pointer;
+	outline: inherit;
+}
+
+input {
+    -webkit-appearance: none;
+       -moz-appearance: none;
+            appearance: none;
+}
+
+
+
+
 .sub_header{
     width: 100vw;    
     display: flex;
     justify-content: space-between;
-    background-color: blue;
+    background-color: #7940FF;
     color: white;
     align-items: center;
     height: 60px;
@@ -47,13 +74,17 @@ h1, h2, h3, h4, h5, h6 {
     width: 30px;
 }
 .sub_header.clear{
-    position: fixed;
+    background: white;
     color: black;
+    background: none;
+}
+.sub_header.fixed{
+    position: fixed;
     top:0;
     left: 0;
-    background: none;
-
 }
+
+/*팝업기능*/
 
 .popup{
     display: flex;
@@ -81,7 +112,7 @@ h1, h2, h3, h4, h5, h6 {
     width: 240px;
     height: 60px;
     border-radius: 30px;
-    background-color: blue;
+    background-color: #7940FF;
     color: white;
     font-size: 20px;
     font-weight: 600;
@@ -90,13 +121,111 @@ h1, h2, h3, h4, h5, h6 {
 .popup.out{
     display: none;
 }
+
+/*스플래쉬화면*/
+.splash{
+    width: 200vw;
+    height: 100vh;
+    display: flex;
+    position: fixed;
+    top: 0;
+    left: 0;
+}
+
+.splash article{
+    height: 100vh;
+}
+.splash .contents{
+    background-image: url(intro1.png);
+    background-size: cover;
+    background-position-x: 30%;
+    filter: brightness(50%);
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+.splash h1{    color: white;
+    font-size: 30px;
+    position: absolute;
+    bottom: 180px;
+    left: 0;
+    z-index: 1;
+    width: calc(100% - 60px);
+    padding: 0 30px;
+}
+.splash h1 span{    color: white;
+    font-size: 16px;
+}
+
+/*이미지 슬라이더*/
+.slider article{        
+    flex-basis: 100vw;
+    flex-shrink: 0;
+    position: relative;
+}
+
+.slider article:nth-child(2) .contents{
+    background-image: url(intro2.jpg);
+}
+
+.scroll{
+    display: block;
+    width: calc(100% - 60px);
+    height: 6px;
+    background-color: white;
+    border-radius: 10px;
+    position: fixed;
+    bottom: 60px;
+    margin: 0 30px;
+}
+.scroll:after{
+    content: " ";
+    display: block;
+    width: 50%;
+    left: 0;
+    height: 6px;
+    background-color: rgb(170 76 255);
+    position: absolute;
+    border-radius: 10px;
+}
+.scroll.mover:after{
+    left: 50%;
+    transition: left 2s;
+}
+.slider_controller{            position: fixed;
+    bottom: 130px;
+    width: calc(100vw - 60px);
+    margin: 0 30px;
+    background: none;
+    border: none;
+    color: white;
+    text-align: left;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.slider.mover{
+    left: -100vw; 
+    transition: left 2s;
+}
+.circle_btn{
+    width: 36px;
+    height: 36px;
+    background-color: #7940FF;
+    border-radius: 20px;
+}
+.spalach.slider .circle_btn{
+    text-align: left;
+}
+
+/*사진촬영 채점화면*/
 #camera, #camera--view, #camera--sensor{
     position: fixed;
     height: 100vh;
     width: 100vw;
     object-fit: cover;
 }
-
 #camera--view, #camera--sensor{
     transform: scaleX(-1);
     filter: FlipH;
@@ -127,24 +256,15 @@ h1, h2, h3, h4, h5, h6 {
 
 
 .main_header{
-    background: blue;
-    /* background: linear-gradient(180deg, rgba(170,76,255,1) 19%, rgba(255,214,233,1) 100%);     */
+    background: #7940FF;
     border-radius: 0 0 20px 20px;
     width: calc(100% - 80px);
     color: white;
     padding: 50px 40px 30px 40px;
-    box-shadow: 0 9px 15px #0000004d;
+    box-shadow: 0 10px 8px #cdb8ff;
     margin-bottom: 30px;
 }
 
-.main_header img{
-    width: 64px;
-    border-radius: 32px;
-    background-color: white;
-    position: absolute;
-    right: 30px;
-    top: 50px;
-}
 .main_header h1{  
     color: white;
     font-size: 24px;
@@ -153,10 +273,10 @@ h1, h2, h3, h4, h5, h6 {
 .main_header h2{  
     color: white;
     font-size: 18px;
-    margin-bottom: 30px;
+    margin-bottom: 50px;
 }
 .main_header h3{  
-    color: white;
+    color:#EDBD39;
     font-size: 14px;
     font-weight: 400;
     margin-left: 10px;
@@ -164,12 +284,13 @@ h1, h2, h3, h4, h5, h6 {
 .main_header h3 span{
     font-size: 14px;
     font-weight: 400;
-    color: white;
+    color:#EDBD39;
 }
 .main_header .setting{
     text-align: right;
     width: 100%;
     display: inline-block;
+    margin-top: 10px;
 }
 
 footer ul{
@@ -193,14 +314,14 @@ footer li.active a:after{
     height: 15px;
     width: 26px;
     display: block;
-    background-color: blue;
+    background-color: #7940FF;
     position: absolute;
     bottom: 0px;
     left: calc(50% - 13px);
     border-radius: 20px;
 }
 footer li.active a{
-    color: blue;
+    color: #7940FF;
 }
 footer li a{
     text-decoration: none;
@@ -212,11 +333,10 @@ footer li a{
 
 
 main{
-    min-height: 100vh;
     display: inline-block;
 }
 main section {
-   margin: 20px;
+    margin: 20px 20px 40px 20px;
 }
 .list{
     width: 100vw;
@@ -238,21 +358,59 @@ main section {
     line-height: 60px;
     text-indent: 30px;
 }
+
+.list h2{ 
+    font-size: 18px;
+}
+
+#공채{
+    background: rgb(176,143,255);
+background: linear-gradient(90deg, rgba(176,143,255,1) 0%, rgba(132,191,215,1) 75%);
+}
+#공채 .info span::after{
+    width: 20%;
+    background-color: skyblue;
+}
+
+
+#토익{background: rgb(255,181,143);
+background: linear-gradient(90deg, rgba(255,181,143,1) 0%, rgba(255,227,55,1) 75%);
+}
+#토익 .info span::after{
+    width: 80%;
+    background-color: #ff8a00;
+}
+
+#논술{background: rgb(255,181,143);
+background: linear-gradient(90deg, rgba(255,181,143,1) 0%, rgba(255,150,255,1) 75%);
+}
+
+#논술 .info span::after{
+    width: 40%;
+    background-color: lightcoral;
+}
+
+
 .grid li{
     display: inline-block;
-    background: bisque;
+    background: #eee;
     border-radius: 20px;
     padding: 20px;
     padding-left: 30px;
     margin-right: 20px;
 } 
+.grid h1{
+    font-size: 18px;
+    height: 24px;
+    overflow: hidden;
+}
 .grid h2{
-    font-size: 20px;
+    font-size: 18px;
 }
 .grid h3{
     color: #999;
     font-weight: 400;
-    font-size: 16px;
+    font-size: 14px;
 }
 .grid .info {    
     margin-top: 30px;
@@ -264,20 +422,20 @@ main section {
     width: 100%;
     background-color: white;
     display: block;
-    border-radius: 30px;
-    height: 20px;
+    border-radius: 10px;
+    margin-top: 5px;
     position: relative;
-    font-size: 16px;
+    font-size: 10px;
     text-indent: calc(100% - 40px);
-    line-height: 24px;
+    height: 10px;
 }
 .grid .info span::after{   
     content: " "; 
-    height: 20px;
+    height: 10px;
     width: 20%;
-    background-color: rgb(228, 94, 94);
+    background-color: #ddd;
     display: block;
-    border-radius: 30px;
+    border-radius: 10px;
     position: absolute;
     top: 0;
 }
@@ -293,6 +451,8 @@ main section {
     width: 60%;
     flex-shrink: 0;
 }
+
+
 .vertical_grid ul{
     flex-wrap : wrap;
 }
@@ -340,6 +500,23 @@ main section {
     margin-bottom: 20px;
     display: block;
 }
+#checking_menu li{
+    flex-basis: 100%;
+    margin: 0;
+    margin-bottom: 20px;
+    display: block;
+    background-color: white;
+}
+#checking_menu .circle_btn span{
+    margin: 0;
+    color: white;
+}
+
+#checking_menu .circle_btn{
+    margin-top: -20px;
+    margin-bottom: 10px;
+    box-shadow: 0px 5px 9px #626262;
+}
 .grid .btn{
     flex-basis: 100%;
     margin: 0;
@@ -353,9 +530,225 @@ main section {
     text-align: center;
     margin-bottom: 5px;
 }
+
 #result{
     margin-bottom: 100px;
 }
 #result img{
     width: 60vw;
+}
+
+#login {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    
+}
+
+#login h1{
+    margin: 110px 0 50px 0 ;
+}
+#login h3{
+    margin: 50px 0;
+    font-weight: 400;
+}
+
+#login input[type=text]{
+    width: 100%;
+    height: 50px;
+    border: none;
+    background-color: #eee;
+    margin: 5px 0;
+    text-indent: 20px;
+}
+
+#login span{
+    font-size: 14px;
+    position: relative;
+    padding-left: 20px;
+    margin: 0px 10px;
+}
+#login span:before{  content: " ";
+    width: 14px;
+    height: 14px;
+    border-radius: 10px;
+    border: 1px solid #ddd;
+    background-color: white;
+    display: inline-block;
+    position: absolute;
+    left: 0px;
+    top: 3px;
+}
+#login button.main{
+    color: white;
+    background-color: #7940FF;
+    text-align: center;
+    width: 100%;
+    height: 50px;
+    margin: 40px 0 10px 0;
+    display: block;
+}
+
+#login button.sub{
+    text-align: center;;
+    width: calc(50% - 5px);
+    height: 40px;
+    margin-bottom: 10px;
+    display: inline-block;
+    border: 1px solid #eee;
+}
+#login h3{
+    font-size: 14px;
+    text-align: center;
+}
+#login b{
+    color: #7940FF;
+}
+.notice {
+  animation: notice 3s infinite,     colorchange 1.5s forwards;
+}
+
+@keyframes notice {
+   0% {
+    transform: scale(1.0);
+  }
+
+  50% {
+    transform: scale(1.0);
+  }
+    60%{
+        
+    transform: scale(1.1);
+    }
+    70%{
+        
+    transform: scale(1.2);
+    }
+
+    80%{
+        
+    transform: scale(1.1);
+    }
+
+    90%{
+        
+    transform: scale(1.1);
+    }
+  100% {
+    transform: scale(1.0);
+  }
+}
+@keyframes colorchange {
+   0% {
+    background-color: #7940FF;
+  }
+
+  50% {
+    background-color: #7940FF;
+  }
+  100% {
+    background-color: #CCA63D;
+  }
+}
+
+
+#home .list{
+    margin: 10px 0 50px 0;
+    padding: 0 20px;
+    width: calc(100% - 40px);
+}
+
+#home .list li{
+    background-color: #eee;
+    border-radius: 5px;
+    margin: 8px 0px;
+    padding: 0 0 20px 0;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    box-shadow: 0 5px 5px #ddd;
+}
+#home .list li a{
+    display: contents;
+}
+#home .list li h1{
+    flex-basis: 100%;
+    flex-shrink: 0;
+    font-size: 18px;
+    line-height: 32px;
+    color: white;background: rgb(73,33,168);
+background: linear-gradient(90deg, rgba(73,33,168,1) 0%, rgba(121,64,255,1) 75%);border-radius: 5px 5px 0 0;
+    padding: 5px 0;
+}
+#home .list li h3{
+    font-size: 12px;
+    font-weight: 400;
+    display: block;
+    position: relative;
+    margin: 10px 0;
+}
+#home .list li h3:after{font-family: 'Material Symbols Rounded';
+    content: "\e5cc";
+    display: block;
+    width: 20px;
+    height: 20px;
+    font-size: 16px;
+    font-weight: 100;
+    position: absolute;
+    top: -1px;
+    right: -20px;
+    text-indent: 2px;
+}
+
+.main_header .title{
+    width: 100%;
+    margin-bottom: 40px;
+}
+
+.main_header .logo{
+    width: 60px;
+    margin-bottom: 10px;
+}
+
+#camera--trigger.circle_btn{
+    width: 60px;
+    right: calc(50% - 30px);
+    bottom: 140px;
+}
+#camera--trigger span{
+    width: 60px;
+    margin: 0;
+    font-size: 40px;
+}
+
+.opacity{
+    opacity: 30%;
+    
+}
+
+.checking_option{
+    display: flex;
+    color: white;
+    font-size: 18px;
+    font-weight: 400;
+    position: absolute;
+    bottom: 70px;
+    width: 100%;
+    justify-content: space-around;
+}
+.checking_option .on{
+    font-size: 20px;
+}
+.checking_option .on:after{
+    content: " ";
+    width: 10px;
+    height: 10px;
+    border-radius: 10px;
+    background-color: #5620D7;
+    display: block;
+    margin: auto;
+    margin-top: 10px;
+}
+#zoom{
+    
 }
