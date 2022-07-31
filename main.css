@@ -136,7 +136,7 @@ input {
     height: 100vh;
 }
 .splash .contents{
-    background-image: url(intro1.png);
+    background-image: url(intro1.jpeg);
     background-size: cover;
     background-position-x: 30%;
     filter: brightness(50%);
