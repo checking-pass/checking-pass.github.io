@@ -190,7 +190,7 @@ input {
 }
 .scroll.mover:after{
     left: 50%;
-    transition: left 2s;
+    transition: left 1s;
 }
 .slider_controller{            position: fixed;
     bottom: 130px;
@@ -207,7 +207,7 @@ input {
 
 .slider.mover{
     left: -100vw; 
-    transition: left 2s;
+    transition: left 1s;
 }
 .circle_btn{
     width: 36px;
